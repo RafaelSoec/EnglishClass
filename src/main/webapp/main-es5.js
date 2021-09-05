@@ -175,17 +175,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
         this.title = "Teacher Flavia";
         this.linkWhatsapp = "https://api.whatsapp.com/send?phone=5561996825543&text=Oi%2C%20Flavia.%20Eu%20quero%20saber%20como%20melhorar%20meu%20ingl%C3%AAs!";
     }
-    AppComponent.prototype.ngOnInit = function () { };
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.router.config.forEach(function (config) {
+            if (config.path && location.href.includes(config.path)) {
+                _this.router.navigate([config.path]);
+                return;
+            }
+        });
+    };
     AppComponent.prototype.abrirWhatsapp = function () {
         window.open(this.linkWhatsapp, "_blank");
     };
+    AppComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: "app-root",
