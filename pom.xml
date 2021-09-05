@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.projeto</groupId>
-	<artifactId>SouthSyst</artifactId>
+	<artifactId>FlaviaClassroom</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SouthSyst</name>
-	<description>Projeto Tecnico </description>
+	<name>Teacher Flavia</name>
+	<description>Website da Miss Flavia </description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
