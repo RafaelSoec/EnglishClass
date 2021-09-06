@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @CrossOrigin(origins = "*")
 @Api(value = "API REST Plano")
-@RequestMapping(value="api/plano")
+@RequestMapping(value="plano")
 public class PlanoResource {
 	
 	@Autowired
