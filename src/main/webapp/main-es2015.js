@@ -190,7 +190,7 @@ let AppComponent = class AppComponent {
     }
     ngOnInit() {
         this.route.queryParams.subscribe((param) => {
-            if (param.page != "") {
+            if (param.page != "" && param.page != undefined && param.page != null) {
                 this.page = param.page;
             }
             else {

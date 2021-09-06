@@ -194,7 +194,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.queryParams.subscribe(function (param) {
-            if (param.page != "") {
+            if (param.page != "" && param.page != undefined && param.page != null) {
                 _this.page = param.page;
             }
             else {
