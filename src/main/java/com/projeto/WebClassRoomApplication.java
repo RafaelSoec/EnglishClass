@@ -16,7 +16,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.projeto"})
 public class WebClassRoomApplication {
 
 	public static void main(String[] args) {
