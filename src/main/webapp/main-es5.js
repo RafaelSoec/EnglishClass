@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<router-outlet></router-outlet>\n<a (click)=\"abrirWhatsapp()\" class=\"whats\">\n  <i style=\"margin-top: 16px\" class=\"fa fa-whatsapp\"></i>\n</a>\n"
+module.exports = "<div *ngIf=\"page\" id=\"pages\">\n  <app-navbar></app-navbar>\n  <!-- <router-outlet></router-outlet> -->\n  <a (click)=\"abrirWhatsapp()\" class=\"whats\">\n    <i style=\"margin-top: 16px\" class=\"fa fa-whatsapp\"></i>\n  </a>\n\n  <div *ngIf=\"page == pagePlanos\"><app-planos></app-planos></div>\n  <div *ngIf=\"page == pageQuemSou\"><app-quem-somos></app-quem-somos></div>\n  <div *ngIf=\"page == pageHome\"><app-home></app-home></div>\n</div>\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<div class=\"p-5\">\n  <p>Aprenda inglês no seu tempo e no co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bg-planos\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-12 row justify-content-center\">\n      <h3 class=\"col-3 text-center mt-5\">Nossos Planos</h3>\n    </div>\n    <div *ngFor=\"let plano of planos\" class=\"col-3 ml-2 mt-5\">\n      <div class=\"card\">\n        <div class=\"card-header\" class=\"bg-principal p-2 text-center\">\n          {{ plano.nome }}\n        </div>\n        <div class=\"card-body text-center\">\n          <img width=\"35\" height=\"35\" [src]=\"plano.icone\" />\n          <ul class=\"text-start mt-3\">\n            <li class=\"\">Acompanhamento personalizado</li>\n            <li class=\"\">Aulas individuais ou em grupo</li>\n            <li class=\"\">Material individualizado</li>\n            <li class=\"\">Aulas Online</li>\n            <li class=\"\">{{ plano.descricaoHora }}</li>\n          </ul>\n        </div>\n        <div class=\"card-footer bg-principal p-2 text-center\">\n          {{ plano.valor | currency: \"R$ \" }}\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"bg-planos\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-12 row justify-content-center\">\n      <h3 class=\"col-6 col-sm-6 col-md-3 col-lg-3 col-xs-3 text-center mt-5\">\n        Nossos Planos\n      </h3>\n    </div>\n    <div\n      *ngFor=\"let plano of planos\"\n      class=\"col-9 col-sm-9 col-md-7 col-lg-3 col-xs-3 ml-2 mt-5\"\n    >\n      <div class=\"card\">\n        <div class=\"card-header\" class=\"bg-principal p-2 text-center\">\n          {{ plano.nome }}\n        </div>\n        <div class=\"card-body text-center\">\n          <img width=\"35\" height=\"35\" [src]=\"plano.icone\" />\n          <ul class=\"text-start mt-3\">\n            <li class=\"\">Acompanhamento personalizado</li>\n            <li class=\"\">Aulas individuais ou em grupo</li>\n            <li class=\"\">Material individualizado</li>\n            <li class=\"\">Aulas Online</li>\n            <li class=\"\">{{ plano.descricaoHora }}</li>\n          </ul>\n        </div>\n        <div class=\"card-footer bg-principal p-2 text-center\">\n          {{ plano.valor | currency: \"R$ \" }}\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<div>\n  <div class=\"d-flex justify-content-center\">\n    <d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light\">\n  <div class=\"container-fluid\">\n    <div class=\"justify-content-between\">\n      <a class=\"navbar-brand\" (click)=\"selecionarAba(pages[0])\"\n        >Teacher Flavia</a\n      >\n    </div>\n    <div>\n      <!-- <button\n        class=\"navbar-toggler\"\n        type=\"button\"\n        data-mdb-toggle=\"collapse\"\n        data-mdb-target=\"#navbarNav\"\n        aria-controls=\"navbarNav\"\n        aria-expanded=\"false\"\n        aria-label=\"Toggle navigation\"\n      >\n        <i class=\"fas fa-bars\"></i>\n      </button> -->\n      <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n        <ul class=\"navbar-nav\">\n          <li class=\"nav-item\" *ngFor=\"let page of pages\">\n            <a\n              [class]=\"page.classe\"\n              aria-current=\"page\"\n              (click)=\"selecionarAba(page)\"\n              >{{ page.nome }}</a\n            >\n          </li>\n          <!-- <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/planos\">Planos</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/quem-sou\">Quem sou</a>\n          </li> -->\n        </ul>\n      </div>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light\">\n  <div class=\"container-fluid\">\n    <div class=\"justify-content-between\">\n      <a class=\"navbar-brand\" (click)=\"selecionarAba(pages[0])\"\n        >Teacher Flavia</a\n      >\n    </div>\n    <div>\n      <!-- <button\n        class=\"navbar-toggler\"\n        type=\"button\"\n        data-mdb-toggle=\"collapse\"\n        data-mdb-target=\"#navbarNav\"\n        aria-controls=\"navbarNav\"\n        aria-expanded=\"false\"\n        aria-label=\"Toggle navigation\"\n      >\n        <i class=\"fas fa-bars\"></i>\n      </button> -->\n      <!-- collapse navbar-collapse -->\n      <div class=\"\" id=\"navbarNav\">\n        <ul class=\"navbar-nav\">\n          <li class=\"nav-item\" *ngFor=\"let page of pages\">\n            <a\n              [class]=\"page.classe\"\n              aria-current=\"page\"\n              (click)=\"selecionarAba(page)\"\n              >{{ page.nome }}</a\n            >\n          </li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light\">\n  <div c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <video\n    id=\"video\"\n    [width]=\"width\"\n    controls\n    autoplay\n    loop\n    controlsList=\"nodownload\"\n  >\n    <source [src]=\"src\" type=\"video/mp4\" />\n  </video>\n</div>\n"
+module.exports = "<div>\n  <!-- autoplay -->\n  <video\n    *ngIf=\"width\"\n    id=\"video\"\n    [width]=\"width\"\n    controls\n    loop\n    controlsList=\"nodownload\"\n  >\n    <source [src]=\"src\" type=\"video/mp4\" />\n  </video>\n  <video\n    *ngIf=\"!width\"\n    class=\"col-12 col-sm-12 col-md-6 col-lg-6 col-xs-6\"\n    id=\"video\"\n    controls\n    loop\n    controlsList=\"nodownload\"\n  >\n    <source [src]=\"src\" type=\"video/mp4\" />\n  </video>\n</div>\n"
 
 /***/ }),
 
@@ -103,11 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _planos_planos_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./planos/planos.component */ "./src/app/planos/planos.component.ts");
-/* harmony import */ var _quem_somos_quem_somos_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./quem-somos/quem-somos.component */ "./src/app/quem-somos/quem-somos.component.ts");
-/* harmony import */ var _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/models/enums/RotasEnum */ "./src/app/shared/models/enums/RotasEnum.ts");
-
-
+/* harmony import */ var _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/models/enums/RotasEnum */ "./src/app/shared/models/enums/RotasEnum.ts");
 
 
 
@@ -115,25 +111,29 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     {
-        path: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].NONE,
-        redirectTo: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].HOME,
-        pathMatch: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].FULL,
-    },
-    {
-        path: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].HOME,
+        path: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_4__["RotasEnum"].NONE,
         component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"],
     },
-    {
-        path: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].QUEM_SOMOS,
-        component: _quem_somos_quem_somos_component__WEBPACK_IMPORTED_MODULE_5__["QuemSomosComponent"],
-    },
-    {
-        path: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].PLANOS,
-        component: _planos_planos_component__WEBPACK_IMPORTED_MODULE_4__["PlanosComponent"],
-    },
+    // {
+    //   path: RotasEnum.NONE,
+    //   redirectTo: RotasEnum.HOME,
+    //   pathMatch: RotasEnum.FULL,
+    // },
+    // {
+    //   path: RotasEnum.HOME,
+    //   component: HomeComponent,
+    // },
+    // {
+    //   path: RotasEnum.QUEM_SOMOS,
+    //   component: QuemSomosComponent,
+    // },
+    // {
+    //   path: RotasEnum.PLANOS,
+    //   component: PlanosComponent,
+    // },
     {
         path: "**",
-        redirectTo: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_6__["RotasEnum"].HOME,
+        redirectTo: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_4__["RotasEnum"].HOME,
     },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -176,29 +176,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/models/enums/RotasEnum */ "./src/app/shared/models/enums/RotasEnum.ts");
+
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(router) {
+    function AppComponent(router, route) {
         this.router = router;
+        this.route = route;
         this.title = "Teacher Flavia";
         this.linkWhatsapp = "https://api.whatsapp.com/send?phone=5561996825543&text=Oi%2C%20Flavia.%20Eu%20quero%20saber%20como%20melhorar%20meu%20ingl%C3%AAs!";
+        this.pageHome = _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].HOME;
+        this.pageQuemSou = _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].QUEM_SOMOS;
+        this.pagePlanos = _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].PLANOS;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.router.config.forEach(function (config) {
-            if (config.path && location.href.includes(config.path)) {
-                _this.router.navigate([config.path]);
-                return;
+        this.route.queryParams.subscribe(function (param) {
+            if (param.page != "") {
+                _this.page = param.page;
+            }
+            else {
+                _this.page = _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].HOME;
+                _this.router.navigate([_shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].NONE], {
+                    queryParams: { page: _shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].HOME },
+                });
             }
         });
+        // this.router.config.forEach((config) => {
+        //   if (config.path && location.href.includes(config.path)) {
+        //     this.router.navigate([config.path]);
+        //     return;
+        //   }
+        // });
     };
     AppComponent.prototype.abrirWhatsapp = function () {
         window.open(this.linkWhatsapp, "_blank");
     };
     AppComponent.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
     ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -467,7 +485,9 @@ var NavbarComponent = /** @class */ (function () {
         this.pages.forEach(function (pag) {
             if (page.nome == pag.nome) {
                 pag.classe = "nav-link active";
-                _this.router.navigate([pag.rota]);
+                _this.router.navigate([src_app_shared_models_enums_RotasEnum__WEBPACK_IMPORTED_MODULE_3__["RotasEnum"].NONE], {
+                    queryParams: { page: pag.rota },
+                });
             }
             else {
                 pag.classe = "nav-link ";
@@ -536,7 +556,6 @@ __webpack_require__.r(__webpack_exports__);
 var VideoComponent = /** @class */ (function () {
     function VideoComponent() {
         this.myVideo = document.getElementById("video");
-        this.width = "640";
     }
     VideoComponent.prototype.ngOnInit = function () { };
     VideoComponent.prototype.playPause = function () {
@@ -582,7 +601,7 @@ var RotasEnum;
     RotasEnum["ADMIN"] = "admin";
     RotasEnum["HOME"] = "home";
     RotasEnum["QUEM_SOMOS"] = "quem-sou";
-    RotasEnum["PLANOS"] = "planos";
+    RotasEnum["PLANOS"] = "meus-planos";
     RotasEnum["NONE"] = "";
     RotasEnum["FULL"] = "full";
 })(RotasEnum || (RotasEnum = {}));
@@ -604,9 +623,17 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
 };
 /*
+spring.datasource.url=jdbc:postgresql://ec2-54-91-188-254.compute-1.amazonaws.com:5432/d5646s2156nnp0
+spring.datasource.username=qnxjwtyylewbym
+spring.datasource.password=9e55655351828c6ed791d0d0cdf0a89b257bc247bff2bd3543844f33a9f1f26a
+
+rabbit.host=hornet.rmq.cloudamqp.com
+rabbit.username=slgkdqto
+rabbit.password=O3n8T37rWzBgO3HK5OZtFwle2LJDCmvr
+
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
